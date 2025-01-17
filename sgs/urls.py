@@ -16,10 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from .settings import STATIC_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('steam_looker.urls'))
+    path('chat/', include('chat.urls')),  # Подключаем маршруты из приложения 'chat'
 ]

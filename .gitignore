@@ -2,3 +2,6 @@
 __pycache__/
 .env
 /static_media/
+test.py
+/node_modules/
+package-lock.json

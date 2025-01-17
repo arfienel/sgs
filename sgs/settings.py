@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'daphne',
     'django.contrib.staticfiles',
-    'steam_looker',
+    'channels',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sgs.urls'
+
+AUTH_USER_MODEL = 'chat.CustomUser'
 
 TEMPLATES = [
     {
@@ -70,8 +74,18 @@ TEMPLATES = [
     },
 ]
 
+ASGI_APPLICATION = 'sgs.asgi.application'
+
 WSGI_APPLICATION = 'sgs.wsgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
