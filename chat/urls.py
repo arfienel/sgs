@@ -2,5 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('<str:channel_name>/', views.chat_room, name='chat_room'),
+    path('', views.index, name='index'),
+    path('chat/<str:channel_name>/', views.chat_room, name='chat_room'),
+    path('register/', views.register, name='register'),
+    path("login/", views.login_view, name="login"),
+    path("logout/", views.logout_view, name="logout"),
 ]

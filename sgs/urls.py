@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('chat/', include('chat.urls')),  # Подключаем маршруты из приложения 'chat'
+    path('', include('chat.urls')),
 ]
