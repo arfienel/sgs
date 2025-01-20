@@ -8,7 +8,7 @@ class CustomUser(AbstractUser):
 
 # Модель сервера
 class Server(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Название сервера")
+    name = models.CharField(max_length=100, unique=True, verbose_name="Название сервера")
     description = models.TextField(blank=True, verbose_name="Описание сервера")
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='owned_servers', verbose_name="Владелец сервера")
     members = models.ManyToManyField(CustomUser, related_name='joined_servers', verbose_name="Участники сервера")

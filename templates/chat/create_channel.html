@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="{% url 'create_channel' server_id=server.id %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="channelName" class="form-label">Название канала:</label>
+        <input type="text" class="form-control" id="channelName" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="channelType" class="form-label">Тип канала:</label>
+        <select class="form-select" id="channelType" name="is_voice">
+            <option value="0">Текстовый</option>
+            <option value="1">Голосовой</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Создать канал</button>
+</form>
+{% endblock %}

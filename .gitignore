@@ -5,3 +5,4 @@ __pycache__/
 test.py
 /node_modules/
 package-lock.json
+dump.rdb

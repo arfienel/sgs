@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="{% url 'create_server' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="serverName" class="form-label">Название сервера:</label>
+        <input type="text" class="form-control" id="serverName" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="serverDescription" class="form-label">Описание сервера:</label>
+        <textarea class="form-control" id="serverDescription" name="description" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Создать сервер</button>
+</form>
+{% endblock %}
